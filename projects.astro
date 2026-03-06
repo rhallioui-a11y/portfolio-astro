@@ -1,0 +1,27 @@
+---
+import ProjectCard from '../components/ProjectCard.astro';
+const title = "My Projects";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <h1>{title}</h1>
+    <ProjectCard
+      title="Gestion Patients"
+      description="Programme en C pour gérer des patients"
+      link="https://github.com/projet"
+    />
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </body>
+</html>
