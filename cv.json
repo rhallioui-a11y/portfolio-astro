@@ -1,0 +1,19 @@
+{
+  "name": "Your Name",
+  "title": "Web Developer",
+  "summary": "A passionate web developer with experience in modern technologies.",
+  "skills": ["JavaScript", "Astro", "React", "Node.js"],
+  "experience": [
+    {
+      "title": "Developer",
+      "company": "Company Name",
+      "duration": "2020 - Present"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's in Computer Science",
+      "school": "University Name"
+    }
+  ]
+}
