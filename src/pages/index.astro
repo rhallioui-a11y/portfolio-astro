@@ -3,169 +3,710 @@
 ---
 
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rym Hallioui | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Rym Hallioui, Software Engineering Student."
+    />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      :root {
+        --bg: #fff7fb;
+        --bg-soft: #fff0f7;
+        --card: #ffffff;
+        --text: #24141b;
+        --muted: #6c4d5b;
+        --primary: #ff5fa2;
+        --primary-dark: #e0468b;
+        --primary-soft: #ffd6e8;
+        --border: rgba(255, 95, 162, 0.16);
+        --shadow: 0 18px 40px rgba(255, 95, 162, 0.12);
+      }
 
-<title>Rym Hallioui | Portfolio</title>
+      * {
+        box-sizing: border-box;
+      }
 
-<style>
+      html {
+        scroll-behavior: smooth;
+      }
 
-body{
-margin:0;
-font-family:Arial;
-background:#fff0f6;
-color:#333;
-}
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(255, 196, 225, 0.7), transparent 28%),
+          radial-gradient(circle at top right, rgba(255, 214, 232, 0.75), transparent 24%),
+          linear-gradient(180deg, #fff8fc 0%, #fff4f9 45%, #fff8fc 100%);
+      }
 
-header{
-background:linear-gradient(135deg,#ff6fa5,#ffb3d1);
-padding:70px;
-text-align:center;
-color:white;
-}
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-nav a{
-margin:15px;
-color:white;
-font-weight:bold;
-text-decoration:none;
-}
+      .container {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+      }
 
-section{
-max-width:900px;
-margin:auto;
-padding:50px 20px;
-}
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(14px);
+        background: rgba(255, 247, 251, 0.8);
+        border-bottom: 1px solid rgba(255, 95, 162, 0.1);
+      }
 
-h2{
-color:#ff3e8a;
-}
+      .nav-inner {
+        width: min(1100px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 18px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
 
-.projects{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:25px;
-}
+      .brand {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+      }
 
-.card{
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-transition:0.3s;
-}
+      .nav-links {
+        display: flex;
+        gap: 22px;
+        flex-wrap: wrap;
+      }
 
-.card:hover{
-transform:scale(1.05);
-}
+      .nav-links a {
+        color: var(--muted);
+        font-weight: 700;
+        transition: 0.25s ease;
+      }
 
-footer{
-background:#ff6fa5;
-padding:20px;
-color:white;
-text-align:center;
-}
+      .nav-links a:hover {
+        color: var(--primary-dark);
+      }
 
-</style>
+      .hero {
+        padding: 72px 0 48px;
+      }
 
-</head>
+      .hero-card {
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        border-radius: 28px;
+        padding: 42px 28px;
+        text-align: center;
+      }
 
-<body>
+      .availability {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 10px 16px;
+        color: var(--primary-dark);
+        font-weight: 700;
+        margin-bottom: 22px;
+      }
 
-<header>
+      .availability-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #39c16c;
+        box-shadow: 0 0 0 8px rgba(57, 193, 108, 0.12);
+      }
 
-<h1>Rym Hallioui</h1>
+      .profile-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 24px;
+        padding: 6px;
+        background: linear-gradient(135deg, #ffc4e1, #ff5fa2, #ffd6e8);
+        box-shadow:
+          0 24px 50px rgba(255, 95, 162, 0.25),
+          0 10px 20px rgba(0, 0, 0, 0.12);
+        transition: transform 0.3s ease;
+      }
 
-<p>Software Engineering Student</p>
+      .profile-photo:hover {
+        transform: scale(1.03);
+      }
 
-<nav>
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        line-height: 1.05;
+      }
 
-<a href="/about/">About</a>
-<a href="/projects/">Projects</a>
-<a href="/contact/">Contact</a>
+      .hero-role {
+        margin: 14px 0 0;
+        font-size: 1.2rem;
+        color: var(--primary-dark);
+        font-weight: 700;
+      }
 
-</nav>
+      .hero-description {
+        max-width: 720px;
+        margin: 18px auto 0;
+        color: var(--muted);
+        font-size: 1.03rem;
+        line-height: 1.7;
+      }
 
-</header>
+      .hero-buttons {
+        margin-top: 28px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
 
-<section>
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: 0.25s ease;
+      }
 
-<h2>About Me</h2>
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), #ff8dbb);
+        color: white;
+        box-shadow: 0 14px 28px rgba(255, 95, 162, 0.22);
+      }
 
-<p>
-I am a first-year software engineering student passionate about
-technology and web development.
-I enjoy building modern applications and learning new tools.
-</p>
+      .btn-primary:hover {
+        transform: translateY(-2px);
+      }
 
-</section>
+      .btn-secondary {
+        background: white;
+        color: var(--primary-dark);
+        border: 1px solid var(--border);
+      }
 
-<section>
+      .btn-secondary:hover {
+        transform: translateY(-2px);
+        background: var(--bg-soft);
+      }
 
-<h2>Projects</h2>
+      .hero-stats {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
 
-<div class="projects">
+      .stat-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 18px;
+      }
 
-<div class="card">
+      .stat-value {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--primary-dark);
+      }
 
-<h3>Student Management System</h3>
+      .stat-label {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
 
-<p>A web application to manage students and courses.</p>
+      section {
+        padding: 34px 0;
+      }
 
-<a href="https://github.com/rhallioui-a11y">
-View on GitHub
-</a>
+      .section-title {
+        font-size: 2rem;
+        margin: 0 0 18px;
+        color: var(--primary-dark);
+      }
 
-</div>
+      .section-subtitle {
+        color: var(--muted);
+        max-width: 760px;
+        margin: 0 0 28px;
+        line-height: 1.7;
+      }
 
-<div class="card">
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
 
-<h3>Portfolio Website</h3>
+      .about-card,
+      .skill-card,
+      .project-card,
+      .contact-card,
+      .education-card {
+        background: rgba(255, 255, 255, 0.82);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
 
-<p>A portfolio built with Astro and deployed on Vercel.</p>
+      .about-number {
+        font-size: 0.95rem;
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin-bottom: 10px;
+      }
 
-<a href="https://github.com/rhallioui-a11y">
-View on GitHub
-</a>
+      .about-card p,
+      .skill-card p,
+      .project-card p,
+      .contact-card p,
+      .education-card p {
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0;
+      }
 
-</div>
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
 
-</div>
+      .skill-card h3,
+      .project-card h3,
+      .contact-card h3,
+      .education-card h3 {
+        margin: 0 0 14px;
+        font-size: 1.2rem;
+      }
 
-</section>
+      .skill-tags,
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
 
-<section>
+      .tag {
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: var(--bg-soft);
+        color: var(--primary-dark);
+        font-size: 0.92rem;
+        font-weight: 700;
+        border: 1px solid rgba(255, 95, 162, 0.12);
+      }
 
-<h2>Contact</h2>
+      .education-grid,
+      .projects-grid,
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
 
-<p>
+      .project-card {
+        position: relative;
+        overflow: hidden;
+      }
 
-LinkedIn :
-<a href="https://www.linkedin.com/in/rym-hallioui-0778873b5/">
-Rym Hallioui
-</a>
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #ffb3d1, #ff5fa2, #ffd6e8);
+      }
 
-</p>
+      .project-link {
+        display: inline-block;
+        margin-top: 18px;
+        color: var(--primary-dark);
+        font-weight: 700;
+      }
 
-<p>
+      .project-link:hover {
+        text-decoration: underline;
+      }
 
-GitHub :
-<a href="https://github.com/rhallioui-a11y">
-rhallioui-a11y
-</a>
+      .contact-card a {
+        color: var(--primary-dark);
+        font-weight: 700;
+      }
 
-</p>
+      .footer {
+        margin-top: 28px;
+        border-top: 1px solid rgba(255, 95, 162, 0.12);
+        padding: 28px 0 36px;
+        text-align: center;
+        color: var(--muted);
+      }
 
-</section>
+      .footer strong {
+        color: var(--primary-dark);
+      }
 
-<footer>
+      @media (max-width: 900px) {
+        .about-grid,
+        .skills-grid,
+        .education-grid,
+        .projects-grid,
+        .contact-grid,
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+      }
 
-© 2026 Rym Hallioui
+      @media (max-width: 640px) {
+        .nav-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-</footer>
+        .nav-links {
+          gap: 14px;
+        }
 
-</body>
+        .hero-card {
+          padding: 30px 18px;
+        }
 
+        .profile-photo {
+          width: 170px;
+          height: 170px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="nav-inner">
+        <a href="#top" class="brand">Rym Hallioui</a>
+
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-card">
+            <div class="availability">
+              <span class="availability-dot"></span>
+              Open to internships and learning opportunities
+            </div>
+
+            <img src="/rym-profile.png" alt="Rym Hallioui" class="profile-photo" />
+
+            <h1>Rym Hallioui</h1>
+
+            <p class="hero-role">Software Engineering Student</p>
+
+            <p class="hero-description">
+              First-year software engineering student passionate about web development,
+              user-friendly interfaces, and modern digital experiences. I enjoy
+              learning new technologies, building creative projects, and growing my
+              technical skills through practical work.
+            </p>
+
+            <div class="hero-buttons">
+              <a
+                href="https://github.com/rhallioui-a11y"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/rym-hallioui-0778873b5/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary"
+              >
+                LinkedIn
+              </a>
+
+              <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-card">
+                <div class="stat-value">3+</div>
+                <div class="stat-label">Main skills</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-value">2+</div>
+                <div class="stat-label">Portfolio projects</div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-value">1st</div>
+                <div class="stat-label">Year in software engineering</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            A modern portfolio should reflect both technical ambition and personal
+            identity. This version highlights Rym’s profile in a clean, elegant,
+            and creative way while staying professional.
+          </p>
+
+          <div class="about-grid">
+            <article class="about-card">
+              <div class="about-number">01</div>
+              <p>
+                I am a software engineering student with a strong interest in web
+                development, design, and digital creativity. I enjoy building clear,
+                structured, and visually pleasing interfaces.
+              </p>
+            </article>
+
+            <article class="about-card">
+              <div class="about-number">02</div>
+              <p>
+                My goal is to develop solid technical foundations, work on practical
+                projects, and continue improving my skills in frontend development,
+                problem solving, and software engineering.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-subtitle">
+            A simple and focused overview of the technologies, tools, and strengths
+            that shape my current learning journey.
+          </p>
+
+          <div class="skills-grid">
+            <article class="skill-card">
+              <h3>Frontend</h3>
+              <p>
+                Building responsive and user-friendly interfaces with modern web
+                fundamentals.
+              </p>
+              <div class="skill-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Responsive Design</span>
+              </div>
+            </article>
+
+            <article class="skill-card">
+              <h3>Tools</h3>
+              <p>
+                Using development tools and platforms to manage code, projects, and
+                deployment.
+              </p>
+              <div class="skill-tags">
+                <span class="tag">Git</span>
+                <span class="tag">GitHub</span>
+                <span class="tag">VS Code</span>
+                <span class="tag">Vercel</span>
+                <span class="tag">Astro</span>
+              </div>
+            </article>
+
+            <article class="skill-card">
+              <h3>Soft Skills</h3>
+              <p>
+                Personal strengths that support collaboration, learning, and
+                continuous progress.
+              </p>
+              <div class="skill-tags">
+                <span class="tag">Curiosity</span>
+                <span class="tag">Creativity</span>
+                <span class="tag">Organization</span>
+                <span class="tag">Adaptability</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <p class="section-subtitle">
+            A concise presentation of my academic journey and current focus in
+            software engineering.
+          </p>
+
+          <div class="education-grid">
+            <article class="education-card">
+              <h3>Software Engineering</h3>
+              <p>
+                First-year student developing core knowledge in programming, web
+                development, software structure, and digital problem solving.
+              </p>
+            </article>
+
+            <article class="education-card">
+              <h3>Current Learning Focus</h3>
+              <p>
+                Improving practical skills in frontend development, project building,
+                and professional portfolio creation with modern tools like Astro and
+                Vercel.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">
+            Projects are one of the most important parts of a student portfolio.
+            They show motivation, initiative, and technical progression.
+          </p>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <h3>Student Management System</h3>
+              <p>
+                A web application concept designed to manage students, courses, and
+                academic information in a structured and intuitive way.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+              <a
+                href="https://github.com/rhallioui-a11y"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                View on GitHub →
+              </a>
+            </article>
+
+            <article class="project-card">
+              <h3>Personal Portfolio Website</h3>
+              <p>
+                A responsive portfolio built with Astro and deployed on Vercel to
+                showcase my profile, projects, and contact links in a professional
+                format.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Astro</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Vercel</span>
+              </div>
+              <a
+                href="https://portfolio-astro-seven-orpin.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              >
+                Live Portfolio →
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-subtitle">
+            Feel free to connect with me through my professional profiles.
+          </p>
+
+          <div class="contact-grid">
+            <article class="contact-card">
+              <h3>LinkedIn</h3>
+              <p>
+                Connect with me professionally and follow my academic and career
+                journey.
+              </p>
+              <p style="margin-top: 14px;">
+                <a
+                  href="https://www.linkedin.com/in/rym-hallioui-0778873b5/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit LinkedIn profile
+                </a>
+              </p>
+            </article>
+
+            <article class="contact-card">
+              <h3>GitHub</h3>
+              <p>
+                Explore my repositories, portfolio code, and future technical
+                projects.
+              </p>
+              <p style="margin-top: 14px;">
+                <a
+                  href="https://github.com/rhallioui-a11y"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit GitHub profile
+                </a>
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          <strong>Rym Hallioui</strong> — Built with Astro and deployed on Vercel.
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
