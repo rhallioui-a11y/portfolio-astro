@@ -1,22 +1,171 @@
+
 ---
-const title = "My Portfolio";
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>{title}</h1>
-    <p>Welcome to my portfolio!</p>
-    <nav>
-<a href="/">Home</a>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Rym Hallioui | Portfolio</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#fff0f6;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#ff6fa5,#ffb3d1);
+padding:70px;
+text-align:center;
+color:white;
+}
+
+nav a{
+margin:15px;
+color:white;
+font-weight:bold;
+text-decoration:none;
+}
+
+section{
+max-width:900px;
+margin:auto;
+padding:50px 20px;
+}
+
+h2{
+color:#ff3e8a;
+}
+
+.projects{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+footer{
+background:#ff6fa5;
+padding:20px;
+color:white;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Rym Hallioui</h1>
+
+<p>Software Engineering Student</p>
+
+<nav>
+
 <a href="/about/">About</a>
 <a href="/projects/">Projects</a>
 <a href="/contact/">Contact</a>
+
 </nav>
-  </body>
+
+</header>
+
+<section>
+
+<h2>About Me</h2>
+
+<p>
+I am a first-year software engineering student passionate about
+technology and web development.
+I enjoy building modern applications and learning new tools.
+</p>
+
+</section>
+
+<section>
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+
+<h3>Student Management System</h3>
+
+<p>A web application to manage students and courses.</p>
+
+<a href="https://github.com/rhallioui-a11y">
+View on GitHub
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>Portfolio Website</h3>
+
+<p>A portfolio built with Astro and deployed on Vercel.</p>
+
+<a href="https://github.com/rhallioui-a11y">
+View on GitHub
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Contact</h2>
+
+<p>
+
+LinkedIn :
+<a href="https://www.linkedin.com/in/rym-hallioui-0778873b5/">
+Rym Hallioui
+</a>
+
+</p>
+
+<p>
+
+GitHub :
+<a href="https://github.com/rhallioui-a11y">
+rhallioui-a11y
+</a>
+
+</p>
+
+</section>
+
+<footer>
+
+© 2026 Rym Hallioui
+
+</footer>
+
+</body>
+
 </html>
