@@ -1,25 +1,15 @@
 ---
-import { Image } from "astro:assets";
-import photo from "../assets/photo.jpg";
-const title = "About Me";
+const title = "About";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <h1>{title}</h1>
-    <Image src={photo} alt="photo profil" width={200} />
-    <p>This is the about page.</p>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/projects">Projects</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  </body>
-</html>
+<h1>{title}</h1>
+<p>This is the about page.</p>
+
+<a href="https://www.linkedin.com/in/rym-hallioui-0778873b5" target="_blank">My LinkedIn</a>
+
+<nav>
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/projects/">Projects</a>
+  <a href="/contact/">Contact</a>
+</nav>
